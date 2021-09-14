@@ -16,35 +16,9 @@ jobs:
       - run:
           name: Setup For Test
           command: |
-            if [ ! -e vendor ]; then
-              dep ensure
-            fi
-      - run:
-          name: Run Tests
-          command: |
-            make test
-      - save_cache:
-          key: vendor-{{ checksum "Gopkg.lock" }}
-          paths:
-            - vendor
+            ls -la
 
-  deploy_dev:
-    <<: *defaults
-    docker:
-      - image: circleci/golang:1.9
-    steps:
-      - checkout
-      - restore_cache:
-          key: vendor-{{ checksum "Gopkg.lock" }}
-      - setup_remote_docker
-      - run:
-          name: Build docker image
-          command: |
-            make build
-      - deploy:
-          name: Deploy container
-          command: |
-            ./scripts/deploy.sh dev latest
+
 
   deploy_stg:
     <<: *defaults
@@ -52,17 +26,11 @@ jobs:
       - image: circleci/golang:1.9
     steps:
       - checkout
-      - restore_cache:
-          key: vendor-{{ checksum "Gopkg.lock" }}
-      - setup_remote_docker
       - run:
           name: Build docker image
           command: |
-            make build
-      - deploy:
-          name: Deploy container
-          command: |
-            ./scripts/deploy.sh stg ${CIRCLE_TAG}
+            ls -la
+
 
 
 workflows:
