@@ -1,12 +1,9 @@
-defaults: &defaults
-  working_directory: /go/src/github.com/jun06t/sample-api
-  environment:
-    TZ: "/usr/share/zoneinfo/Asia/Tokyo"
-
 version: 2.1
 jobs:
   deploy_stg:
-    <<: *defaults
+    working_directory: /go/src/github.com/jun06t/sample-api
+    environment:
+      TZ: "/usr/share/zoneinfo/Asia/Tokyo"
     docker:
       - image: circleci/golang:1.9
     steps:
@@ -19,7 +16,7 @@ jobs:
 
 
 workflows:
-  version: 2.1
+  version: 2
   test_and_deploy:
     jobs:
       - deploy_stg:
