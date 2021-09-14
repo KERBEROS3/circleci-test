@@ -21,10 +21,7 @@ workflows:
     jobs:
       - build:
         filters:
-          tags:
-            only: /^deploy_(develop|product)_(A|B)$/
-          branches:
-            ignore: /.*/
-          #branches:
-            #ignore: /.*/
-            #only: circleci-editor/circleci-project-setup
+            branches:
+              ignore: /.*/
+            tags:
+              only: /foo.+/
