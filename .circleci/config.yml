@@ -11,8 +11,6 @@ jobs:
       - image: circleci/golang:1.9
     steps:
       - checkout
-      - restore_cache:
-          key: vendor-{{ checksum "Gopkg.lock" }}
       - run:
           name: Setup For Test
           command: |
