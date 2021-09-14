@@ -5,7 +5,7 @@ jobs:
     environment:
       TZ: "/usr/share/zoneinfo/Asia/Tokyo"
     docker:
-      - image: circleci/golang:1.9
+      - image: circleci/node:16.9.0
     steps:
       - checkout
       - run:
