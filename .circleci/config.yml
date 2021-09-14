@@ -3,7 +3,7 @@ defaults: &defaults
   environment:
     TZ: "/usr/share/zoneinfo/Asia/Tokyo"
 
-version: 2
+version: 2.1
 jobs:
   test:
     <<: *defaults
