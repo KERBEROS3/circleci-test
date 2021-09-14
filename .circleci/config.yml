@@ -14,6 +14,10 @@ jobs:
           name: Build docker image
           command: |
             ls -la
+      - run:
+          name: Build docker image2
+          command: |
+            ls
 
 
 
