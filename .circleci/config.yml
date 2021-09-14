@@ -5,19 +5,6 @@ defaults: &defaults
 
 version: 2.1
 jobs:
-  test:
-    <<: *defaults
-    docker:
-      - image: circleci/golang:1.9
-    steps:
-      - checkout
-      - run:
-          name: Setup For Test
-          command: |
-            ls -la
-
-
-
   deploy_stg:
     <<: *defaults
     docker:
@@ -35,15 +22,7 @@ workflows:
   version: 2.1
   test_and_deploy:
     jobs:
-      #- test:
-      #    filters:
-      #      branches:
-      #        only: /.*/
-      #      tags:
-      #        only: /.*/
       - deploy_stg:
-          #requires:
-          #  - test
           filters:
             branches:
               ignore: /.*/
