@@ -30,4 +30,4 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /foo.+/
+              only: /^deploy_(develop|product)_(A|B)$/
